@@ -1,0 +1,12 @@
+<main class='container'>
+  <div class="panel panel-primary shadow">
+    <div class="panel-heading">Edit user: <%= user.name %></div>
+    <div class="panel-body">
+      <form action="/users/<%= user.id %>" method="post" accept-charset="utf-8">
+        <label for="name">Name</label><input type="text" name="name" value="<%= user.name %>" id="name">
+        <label for="email">Email</label><input type="text" name="email" value="<%= user.email %>" id="email">
+        <input type="submit" value="Update user">
+      </form>
+    </div>
+  </div>
+</main>
