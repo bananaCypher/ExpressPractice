@@ -21,7 +21,7 @@ userRouter.post('/', function(req, res){
   newUser.email = req.body.email;
   newUser.id = user.newID();
   user.users.push(newUser);
-  res.render('users/index', {users: user.users});
+  res.redirect('/users');
 });
 
 userRouter.get('/:id', function(req, res){
@@ -39,7 +39,7 @@ userRouter.post('/:id', function(req, res){
   var requestedUser = user.find(req.params.id);
   requestedUser.name = req.body.name;
   requestedUser.email = req.body.email;
-  res.render('users/show', {user: requestedUser});
+  res.redirect('/users/' + req.params.id);
 });
 
 userRouter.post('/:id/delete', function(req, res){
@@ -47,7 +47,7 @@ userRouter.post('/:id/delete', function(req, res){
   var requestedUser = user.find(req.params.id);
   var index = user.users.indexOf(requestedUser);
   user.users.splice(index, 1);
-  res.render('users/index', {users: user.users});
+  res.redirect('/users');
 });
 
 module.exports = userRouter;
