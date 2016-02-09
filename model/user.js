@@ -1,4 +1,5 @@
 var user = {
+  nextID: 12,
   users: [
     {
       id: 1,
@@ -65,13 +66,9 @@ var user = {
     return null;
   },
   newID: function(){
-    baseID = 0;
-    for (var user of this.users) {
-      if (user.id > baseID) {
-        baseID = user.id
-      }
-    }
-    return baseID + 1;
+    id = this.nextID;
+    this.nextID += 1;
+    return id;
   }
 }
 
